@@ -61,14 +61,14 @@ Person* allocatePerson(const char*name, const int *age)
     if(newPerson ==NULL)
     {
         //check if allocation failed
-        prinf("error: memory allocation failed for person"); 
+        printf("error: memory allocation failed for person"); 
         exit(EXIT_FAILURE); 
     }
 
 
     //allocate memory for the name 
     newPerson-> name= (char*)malloc((strlen(name)+1)*sizeof(char)); 
-    if(newPerson->name=NULL)
+    if(newPerson->name==NULL)
     {
         printf("error; memory allocation failed for name"); 
         free(newPerson); 
@@ -81,7 +81,7 @@ Person* allocatePerson(const char*name, const int *age)
     newPerson->age = (int*)malloc(sizeof(int)); 
     if(newPerson->age ==NULL)
     {
-        prinf("error; memory allocation for age failed"); 
+        printf("error; memory allocation for age failed"); 
         free(newPerson->name);
         free(newPerson); 
         exit(EXIT_FAILURE);
