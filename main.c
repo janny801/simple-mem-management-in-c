@@ -93,6 +93,7 @@ Person* allocatePerson(const char*name, const int *age)
 }
 
 
+//need to define other funtions inorder for compilation proper
 
 
 
