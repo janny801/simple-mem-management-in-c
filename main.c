@@ -64,6 +64,7 @@ Person* allocatePerson(const char*name, const int *age)
         printf("error: memory allocation failed for person"); 
         exit(EXIT_FAILURE); 
     }
+    printf("allocated person struct at address: %p\n", (void*)newPerson); 
 
 
     //allocate memory for the name 
@@ -75,6 +76,7 @@ Person* allocatePerson(const char*name, const int *age)
         exit(EXIT_FAILURE); 
     }
     strcpy(newPerson->name, name); //copy name into allocated memory
+    printf("allocated name address at:  %p\n", (void*)newPerson->name); 
 
 
     //allocate memory for the age 
@@ -87,6 +89,7 @@ Person* allocatePerson(const char*name, const int *age)
         exit(EXIT_FAILURE);
     }
     *(newPerson->age)=*age; 
+    printf("allocated age at address: %p\n", (void*)newPerson->age); 
 
     return newPerson; 
 
@@ -103,6 +106,8 @@ void freePerson(Person *person)
 {
     if(person != NULL)
     {
+
+        
         free(person->name); // free mem allocated for name
         free(person->age); //free mem allocated for age
         free(person); //free mem allocated for person struct
