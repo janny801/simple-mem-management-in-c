@@ -106,10 +106,11 @@ void freePerson(Person *person)
 {
     if(person != NULL)
     {
-
-        
+        printf("freeing name at address: %p\n",(void*)person->name); 
         free(person->name); // free mem allocated for name
+        printf("freeing age at address: %p\n", (void*)person->age); 
         free(person->age); //free mem allocated for age
+        printf("freeing person struct at address: %p\n", (void*)person); 
         free(person); //free mem allocated for person struct
     }
 }
