@@ -95,7 +95,30 @@ Person* allocatePerson(const char*name, const int *age)
 
 //need to define other funtions inorder for compilation proper
 
+//free and print functions for allocation of person
 
+//function to free all dynamically allocated memory for a person 
+
+void freePerson(Person *person)
+{
+    if(person != NULL)
+    {
+        free(person->name); // free mem allocated for name
+        free(person->age); //free mem allocated for age
+        free(person); //free mem allocated for person struct
+    }
+}
+
+//func to print details of the person 
+
+void printPerson( Person *person)
+{
+    if(person!=NULL)
+    {
+        printf("Name: %s, Age: %d\n", person->name, *(person->age)); // Print the name and the value of age 
+
+    }
+}
 
 
 
