@@ -57,6 +57,18 @@ int main()
     }
 
 
+    //print details of all persons 
+    printf("\n --- list of persons ---\n"); 
+    for (int i =0; i< count; i++)
+    {
+        printPerson(persons[i]); 
+        freePerson(persons[i]); 
+    }
+    free(persons); 
+
+    return 0; 
+
+
 
 
 
@@ -82,11 +94,7 @@ int main()
    //dynamically allocate memory for a person and initialize it with user input 
    Person *person = allocatePerson(nameBuffer, &age); 
 
-     */
-
-
-
-
+   
    //print details of the allocated person 
    printPerson(person); 
 
@@ -95,6 +103,12 @@ int main()
 
    return 0; //prog ends
     
+
+     */
+
+
+
+
 
 
 
