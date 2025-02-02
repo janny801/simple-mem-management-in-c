@@ -21,6 +21,32 @@ int main()
 {
     //main
 
+    int capacity = 10; //initial capacity for the array of person pointers
+    int count =0; 
+    Person **persons = malloc(capacity *sizeof(Person*)); //array of pointers to person structs
+    if (persons ==NULL)
+    {
+        fprintf(stderr, "failed to allocate memory for persons array.\n");
+        exit(EXIT_FAILURE); 
+    }
+
+    while(1) //loop to take in person names and ages for input 
+    {   
+        char nameBuffer[100]; 
+        int age; 
+        printf("enter a name (or type 'done' to finish):  "); 
+        scanf("%99s", nameBuffer); //read up to 99 chars 
+        
+    }
+
+
+
+
+
+    /*          old loop to take in singlular person 
+
+
+    
     char nameBuffer[100]; //temp array to hold user input for name
     int age; //temp variable to hold user input for age 
 
@@ -38,6 +64,10 @@ int main()
 
    //dynamically allocate memory for a person and initialize it with user input 
    Person *person = allocatePerson(nameBuffer, &age); 
+
+     */
+
+
 
 
    //print details of the allocated person 
