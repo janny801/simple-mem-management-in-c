@@ -62,6 +62,13 @@ int main()
     for (int i =0; i< count; i++)
     {
         printPerson(persons[i]); 
+        
+    }
+
+
+    printf("\n --- now freeing persons from memory ---\n"); 
+    for(int i =0; i< count; i++)
+    {
         freePerson(persons[i]); 
     }
     free(persons); 
