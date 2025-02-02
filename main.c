@@ -36,7 +36,24 @@ int main()
         int age; 
         printf("enter a name (or type 'done' to finish):  "); 
         scanf("%99s", nameBuffer); //read up to 99 chars 
-        
+        if(strcmp(nameBuffer, "done") ==0) break; //exit loop if 'done' is entered 
+
+        printf("enter an age: "); 
+        scanf("%d", &age); //store age 
+
+        //check if array needs to be expanded based on capacity var (originally 10 ppl )
+        if(count >= capacity) 
+        {
+            capacity +=1; //increase capacity by one if needed
+            persons = realloc(persons, capacity * sizeof(Person*)); 
+            if(persons ==NULL)
+            {
+                fprintf(stderr, "failed to reallocate memory for persons array.\n"); 
+                exit(EXIT_FAILURE); 
+            }
+        }
+        //allocate memory for a new person and initialize with the user input
+        persons[count++] = allocatePerson(nameBuffer, &age); 
     }
 
 
