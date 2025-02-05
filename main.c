@@ -254,10 +254,25 @@ void printPerson( Person *person)
 void freePersons(Person *head) {
     Person *current = head;
     while (current != NULL) {
-        Person *next = current->next;
-        free(current->name);
-        free(current->age);
+        Person *next = current->next; // Save the next person before freeing memory
+
+        // Log and free the name
+        if (current->name != NULL) {
+            printf("Freeing name structure at location: %p\n", (void*)current->name);
+            free(current->name);
+        }
+
+        // Log and free the age
+        if (current->age != NULL) {
+            printf("Freeing age structure at location: %p\n", (void*)current->age);
+            free(current->age);
+        }
+
+        // Log and free the person structure
+        printf("Freeing person structure at location: %p\n", (void*)current);
         free(current);
+
+        // Move to the next person in the list
         current = next;
     }
 }
