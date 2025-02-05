@@ -12,7 +12,7 @@ typedef struct Person
 }Person; 
 
 //function prototypes (used for best prac-- defined later)
-Person* allocatePerson(const char *name, const int *age); //allocate memory for a person and initializes it
+Person* allocatePerson(Person *head, const char *name, const int *age); //allocate memory for a person and initializes it
 void freePerson(Person *person); //frees all allocated memory for a person
 void printPerson(Person * person); //prints details of a person
 
@@ -35,7 +35,7 @@ int main()
             break; 
         }
         printf("enter an age: "); 
-        scanf("%d", age); 
+        scanf("%d", &age); 
 
         head = addPerson(head, nameBufffer, &age); 
     }
