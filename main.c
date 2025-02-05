@@ -141,59 +141,53 @@ Person* allocatePerson(const char*name, const int *age)
 
 
 //funciton to add a new person to the linked list 
-Person* addPerson(Person *head, const char *name, const int *age){
-
+Person* addPerson(Person *head, const char *name, const int *age) {
+    // Allocate memory for the new person structure
     Person *newPerson = (Person*) malloc(sizeof(Person)); 
-
-    if(newPerson ==NULL)
-    {
+    if (newPerson == NULL) {
         fprintf(stderr, "Error: Memory allocation failed for person struct\n");
         exit(EXIT_FAILURE); 
     }
+    printf("\nAllocated person struct at location: %p\n", (void*)newPerson);
 
-    //allocate memory for the person's name 
-    newPerson->name = (char*) malloc((strlen(name)+1) * sizeof(char)); 
-    if(newPerson->name ==NULL)
-    {
+    // Allocate memory for the person's name
+    newPerson->name = (char*) malloc((strlen(name) + 1) * sizeof(char)); 
+    if (newPerson->name == NULL) {
         fprintf(stderr, "Error: Memory allocation failed for name\n");
-        free(newPerson); //clean up already allocated person struct before exiting 
+        free(newPerson); // Clean up already allocated person struct before exiting
         exit(EXIT_FAILURE); 
     }
-    strcpy(newPerson->name, name); //copy name into the newly allocated memory 
+    strcpy(newPerson->name, name); // Copy name into the newly allocated memory
+    printf("Allocated name at location: %p\n", (void*)newPerson->name);
 
-
-    //allocate memory for persons age
+    // Allocate memory for the person's age
     newPerson->age = (int*) malloc(sizeof(int)); 
-    if(newPerson->age ==NULL)
-    {
+    if (newPerson->age == NULL) {
         fprintf(stderr, "Error: Memory allocation for age failed\n");
-
-        //clear up name and person struct allocation
-        free(newPerson->name); 
-        free(newPerson); 
-
+        free(newPerson->name); // Clean up name allocation
+        free(newPerson); // Clean up person struct allocation
         exit(EXIT_FAILURE); 
     }
-    *(newPerson->age) = *age; //dereference age pointer and assign it to allocated memory for age
+    *(newPerson->age) = *age; // Dereference age pointer and assign it to allocated memory
+    printf("Allocated age at location: %p\n", (void*)newPerson->age);
 
-    newPerson->next = NULL; //initialize the next pointer to NULL
+    newPerson->next = NULL; // Initialize the next pointer to NULL
 
-    if(head == NULL)
-    {
+    // Check if the linked list is empty, if so, the new person becomes the head
+    if (head == NULL) {
         return newPerson;
-    }
-    else
-    {
-        Person *current = head; 
-        while(current->next != NULL)
-        {
-            current = current -> next; //traverse to the end of the LL 
+    } else {
+        // Otherwise, append the new person to the end of the list
+        Person *current = head;
+        while (current->next != NULL) {
+            current = current->next; // Traverse to the end of the list
         }
-        current -> next = newPerson; //append new person at the end of the LL 
+        current->next = newPerson; // Append the new person
     }
-    return head; //return the head of the LL  
-
+    printf("Person added to the linked list\n\n"); // Confirmation message
+    return head; // Return the head of the list
 }
+
 
 
 
