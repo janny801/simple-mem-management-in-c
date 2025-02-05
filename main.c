@@ -254,7 +254,7 @@ void freePerson(Person *person)
 
  */
 
-void freePersons(Person *head) 
+void printPersons(Person *head) //print person for LL 
 {
     Person *current = head; 
     while(current !=NULL)
@@ -266,6 +266,8 @@ void freePersons(Person *head)
 
 //func to print details of the person 
 
+
+/*used or array 
 void printPerson( Person *person)
 {
     if(person!=NULL)
@@ -274,7 +276,21 @@ void printPerson( Person *person)
 
     }
 }
+*/
 
+
+void freePersons(Person*head) //freeperson for LL implementation
+{
+    Person *current = head; 
+    while(current!=NULL)
+    {
+        Person*next = current->next; 
+        free(current->name); 
+        free(current->age); 
+        free(current); 
+        current = next; 
+    }
+}
 
 
 
