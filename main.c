@@ -29,7 +29,7 @@ int main()
         char nameBufffer[100]; 
         int age; 
         printf("enter a name (or type 'done' to finish): "); 
-        scanf("%99s", nameBufffer); 
+        scanf("%99s", nameBufffer); //read up to 99 chars 
         if(strcmp(nameBufffer, "done" )==0)
         {
             break; 
@@ -143,18 +143,20 @@ Person* allocatePerson(const char*name, const int *age)
 
 //funciton to add a new person to the linked list 
 Person* addPerson(Person *head, const char *name, const int *age){
-    Person *newPerson = malloc(sizeof(Person)); //allocate memory for size of person struct
+
+    Person *newPerson = (Person*) malloc(sizeof(Person)); 
+
     if(newPerson ==NULL)
     {
-        printf("error: memory allocation failed for person\n"); 
+        fprintf(stderr, "Error: Memory allocation failed for person struct\n");
         exit(EXIT_FAILURE); 
     }
 
     //allocate memory for the person's name 
-    newPerson->name = malloc((strlen(name)+1) * sizeof(char)); 
+    newPerson->name = (char*) malloc((strlen(name)+1) * sizeof(char)); 
     if(newPerson->name ==NULL)
     {
-        printf("error: memory allocation failed for name\n"); 
+        fprintf(stderr, "Error: Memory allocation failed for name\n");
         free(newPerson); //clean up already allocated person struct before exiting 
         exit(EXIT_FAILURE); 
     }
@@ -162,10 +164,10 @@ Person* addPerson(Person *head, const char *name, const int *age){
 
 
     //allocate memory for persons age
-    newPerson->age = malloc(sizeof(int)); 
+    newPerson->age = (int*) malloc(sizeof(int)); 
     if(newPerson->age ==NULL)
     {
-        printf("error: memory allocation for age failed\n"); 
+        fprintf(stderr, "Error: Memory allocation for age failed\n");
 
         //clear up name and person struct allocation
         free(newPerson->name); 
