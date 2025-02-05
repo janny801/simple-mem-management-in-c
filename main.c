@@ -175,17 +175,19 @@ Person* addPerson(Person *head, const char *name, const int *age) {
 
     // Check if the linked list is empty, if so, the new person becomes the head
     if (head == NULL) {
-        return newPerson;
-    } else {
-        // Otherwise, append the new person to the end of the list
-        Person *current = head;
-        while (current->next != NULL) {
-            current = current->next; // Traverse to the end of the list
-        }
-        current->next = newPerson; // Append the new person
+    printf("First person added to the linked list\n\n");  // Print message for the first person added
+    return newPerson;  // The first person added becomes the head of the list
+} else {
+    // Otherwise, append the new person to the end of the list
+    Person *current = head;
+    while (current->next != NULL) {
+        current = current->next;  // Traverse to the end of the list
     }
-    printf("Person added to the linked list\n\n"); // Confirmation message
-    return head; // Return the head of the list
+    current->next = newPerson;  // Append the new person
+}
+printf("Person added to the linked list\n\n");  // Confirmation message for every person added
+return head;  // Return the head of the list
+
 }
 
 
