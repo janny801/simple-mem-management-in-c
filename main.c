@@ -8,6 +8,7 @@ typedef struct Person
     //dynamically allocated ptrs 
     char *name; 
     int *age; 
+    struct Person *next; //pointer to next person in the LL 
 }Person; 
 
 //function prototypes (used for best prac-- defined later)
