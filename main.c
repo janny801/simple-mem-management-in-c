@@ -204,6 +204,21 @@ Person* addPerson(Person *head, const char *name, const int *age){
 
     newPerson->next = NULL; //initialize the next pointer to NULL
 
+    if(head == NULL)
+    {
+        return newPerson;
+    }
+    else
+    {
+        Person *current = head; 
+        while(current->next != NULL)
+        {
+            current = current -> next; //traverse to the end of the LL 
+        }
+        current -> next = newPerson; //append new person at the end of the LL 
+    }
+    return head; //return the head of the LL  
+
 }
 
 
@@ -223,6 +238,7 @@ Person* addPerson(Person *head, const char *name, const int *age){
 
 //function to free all dynamically allocated memory for a person 
 
+/* used for array , we are now using LL
 void freePerson(Person *person)
 {
     if(person != NULL)
@@ -233,6 +249,18 @@ void freePerson(Person *person)
         free(person->age); //free mem allocated for age
         printf("freeing person struct at address: %p\n", (void*)person); 
         free(person); //free mem allocated for person struct
+    }
+}
+
+ */
+
+void freePersons(Person *head) 
+{
+    Person *current = head; 
+    while(current !=NULL)
+    {
+        printf("name: %s, age: %d\n", current -> name, *(current->age)); 
+        current = current-> next; 
     }
 }
 
