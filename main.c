@@ -122,7 +122,7 @@ int main()
 
 }
 
-
+/* used for allocating memory for an array 
 Person* allocatePerson(const char*name, const int *age)
 {
     // allocate memory for the person structure
@@ -163,6 +163,58 @@ Person* allocatePerson(const char*name, const int *age)
     return newPerson; 
 
 }
+
+*/
+
+
+
+//funciton to add a new person to the linked list 
+Person* addPerson(Person *head, const char *name, const int *age){
+    Person *newPerson = malloc(sizeof(Person)); //allocate memory for size of person struct
+    if(newPerson ==NULL)
+    {
+        printf("error: memory allocation failed for person\n"); 
+        exit(EXIT_FAILURE); 
+    }
+
+    //allocate memory for the person's name 
+    newPerson->name = malloc((strlen(name)+1) * sizeof(char)); 
+    if(newPerson->name ==NULL)
+    {
+        printf("error: memory allocation failed for name\n"); 
+        free(newPerson); //clean up already allocated person struct before exiting 
+        exit(EXIT_FAILURE); 
+    }
+    strcpy(newPerson->name, name); //copy name into the newly allocated memory 
+
+
+    //allocate memory for persons age
+    newPerson->age = malloc(sizeof(int)); 
+    if(newPerson->age ==NULL)
+    {
+        printf("error: memory allocation for age failed\n"); 
+
+        //clear up name and person struct allocation
+        free(newPerson->name); 
+        free(newPerson); 
+
+        exit(EXIT_FAILURE); 
+    }
+    *(newPerson->age) = *age; //dereference age pointer and assign it to allocated memory for age
+
+    newPerson->next = NULL; //initialize the next pointer to NULL
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 //need to define other funtions inorder for compilation proper
