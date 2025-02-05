@@ -22,62 +22,35 @@ int main()
 {
     //main
 
-    int capacity = 10; //initial capacity for the array of person pointers
-    int count =0; 
-    Person **persons = malloc(capacity *sizeof(Person*)); //array of pointers to person structs
-    if (persons ==NULL)
-    {
-        fprintf(stderr, "failed to allocate memory for persons array.\n");
-        exit(EXIT_FAILURE); 
-    }
+    Person*head = NULL; //start of LL 
 
-    while(1) //loop to take in person names and ages for input 
-    {   
-        char nameBuffer[100]; 
+    while(1)
+    {
+        char nameBufffer[100]; 
         int age; 
-        printf("enter a name (or type 'done' to finish):  "); 
-        scanf("%99s", nameBuffer); //read up to 99 chars 
-        if(strcmp(nameBuffer, "done") ==0) break; //exit loop if 'done' is entered 
-
-        printf("enter an age: "); 
-        scanf("%d", &age); //store age 
-
-        //check if array needs to be expanded based on capacity var (originally 10 ppl )
-        if(count >= capacity) 
+        printf("enter a name (or type 'done' to finish): "); 
+        scanf("%99s", nameBufffer); 
+        if(strcmp(nameBufffer, "done" )==0)
         {
-            capacity +=1; //increase capacity by one if needed
-            persons = realloc(persons, capacity * sizeof(Person*)); 
-            if(persons ==NULL)
-            {
-                fprintf(stderr, "failed to reallocate memory for persons array.\n"); 
-                exit(EXIT_FAILURE); 
-            }
+            break; 
         }
-        //allocate memory for a new person and initialize with the user input
-        persons[count++] = allocatePerson(nameBuffer, &age); 
+        printf("enter an age: "); 
+        scanf("%d", age); 
+
+        head = addPerson(head, nameBufffer, &age); 
     }
 
 
-    //print details of all persons 
-    printf("\n --- list of persons ---\n"); 
-    for (int i =0; i< count; i++)
-    {
-        printPerson(persons[i]); 
-        
-    }
+    printf("\n--- List of Persons ---\n");
+    printPersons(head);
+
+    printf("\n--- Now freeing persons from memory ---\n");
+    freePersons(head);
+
+    return 0;
 
 
-    printf("\n --- now freeing persons from memory ---\n"); 
-    for(int i =0; i< count; i++)
-    {
-        freePerson(persons[i]); 
-    }
-    free(persons); 
-
-    return 0; 
-
-
-
+}
 
 
     /*          old loop to take in singlular person 
@@ -120,7 +93,7 @@ int main()
 
 
 
-}
+
 
 /* used for allocating memory for an array 
 Person* allocatePerson(const char*name, const int *age)
