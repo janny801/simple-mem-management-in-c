@@ -12,10 +12,9 @@ typedef struct Person
 }Person; 
 
 //function prototypes (used for best prac-- defined later)
-Person* allocatePerson(Person *head, const char *name, const int *age); //allocate memory for a person and initializes it
-void freePerson(Person *person); //frees all allocated memory for a person
-void printPerson(Person * person); //prints details of a person
-
+Person* addPerson(Person *head, const char *name, const int *age);
+void printPersons(Person *head);
+void freePersons(Person *head);
 
 
 int main()
@@ -229,13 +228,11 @@ void freePerson(Person *person)
 
  */
 
-void printPersons(Person *head) //print person for LL 
-{
-    Person *current = head; 
-    while(current !=NULL)
-    {
-        printf("name: %s, age: %d\n", current -> name, *(current->age)); 
-        current = current-> next; 
+void printPersons(Person *head) {
+    Person *current = head;
+    while (current != NULL) {
+        printf("Name: %s, Age: %d\n", current->name, *(current->age));
+        current = current->next;
     }
 }
 
@@ -254,19 +251,16 @@ void printPerson( Person *person)
 */
 
 
-void freePersons(Person*head) //freeperson for LL implementation
-{
-    Person *current = head; 
-    while(current!=NULL)
-    {
-        Person*next = current->next; 
-        free(current->name); 
-        free(current->age); 
-        free(current); 
-        current = next; 
+void freePersons(Person *head) {
+    Person *current = head;
+    while (current != NULL) {
+        Person *next = current->next;
+        free(current->name);
+        free(current->age);
+        free(current);
+        current = next;
     }
 }
-
 
 
 
