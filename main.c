@@ -30,9 +30,13 @@ int main()
     {
         
         printf("Enter a name (or type 'done' to finish): "); 
-        if (fgets(nameBuffer, sizeof(nameBuffer), stdin) == NULL) {
+        char *result = fgets(nameBuffer, sizeof(nameBuffer), stdin); //use fget()
+                                                                //to assign input result to namebuffer variable
+
+    // Check if fgets returned NULL, indicating an error or EOF
+        if (result == NULL) {
             printf("Error reading name. Please try again.\n");
-            continue;
+            continue; // Skip the rest of the loop and start over
         }
 
         // Remove newline character if present
@@ -51,16 +55,18 @@ int main()
 
         int isValidName = 1;
         for (int i = 0; nameBuffer[i] != '\0'; i++) {   //check if chars have whitespace
-            if (!isprint(nameBuffer[i]) || isspace(nameBuffer[i])) {
+            if (!isprint(nameBuffer[i]) || isspace(nameBuffer[i])) { //if it is not a printable char or is a space then invalid 
+            //thus break loop
                 isValidName = 0;
                 break;
             }
         }
         
-        if (!isValidName) {
+        if (!isValidName) {     //code continues if name is valid (isvalidname=1)
             printf("Invalid name. Names must contain printable characters and no spaces. Please enter a valid name.\n");
             continue;
         }
+        
 
 
         printf("Enter an age: ");
