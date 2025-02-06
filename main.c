@@ -29,12 +29,40 @@ int main()
     while(1)
     {
         
-        printf("enter a name (or type 'done' to finish): "); 
-        scanf("%99s", nameBuffer); //read up to 99 chars 
-        if(strcmp(nameBuffer, "done" )==0)
-        {
-            break; 
+        printf("Enter a name (or type 'done' to finish): "); 
+        if (fgets(nameBuffer, sizeof(nameBuffer), stdin) == NULL) {
+            printf("Error reading name. Please try again.\n");
+            continue;
         }
+
+        // Remove newline character if present
+        nameBuffer[strcspn(nameBuffer, "\n")] = 0;
+
+        // Check if the user wants to quit
+        if (strcmp(nameBuffer, "done") == 0) {
+            break;
+        }
+
+        // Check if the input is not empty and contains printable characters only
+        if (strlen(nameBuffer) == 0 || strspn(nameBuffer, " \t\n") == strlen(nameBuffer)) {
+            printf("Name cannot be empty. Please enter a valid name.\n");
+            continue;
+        }
+
+        int isValidName = 1;
+        for (int i = 0; nameBuffer[i] != '\0'; i++) {   //check if chars have whitespace
+            if (!isprint(nameBuffer[i]) || isspace(nameBuffer[i])) {
+                isValidName = 0;
+                break;
+            }
+        }
+        
+        if (!isValidName) {
+            printf("Invalid name. Names must contain printable characters and no spaces. Please enter a valid name.\n");
+            continue;
+        }
+
+
         printf("Enter an age: ");
         while (1) { // Loop until valid age is entered
             scanfResult = scanf("%d", &age);
