@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> 
+#include <limits.h> 
 
 typedef struct Person
 {
@@ -21,22 +22,35 @@ int main()
 {
     //main
 
-    Person*head = NULL; //start of LL 
+    Person *head = NULL;
+    char nameBuffer[100]; 
+    int age, scanfResult;
 
     while(1)
     {
-        char nameBufffer[100]; 
-        int age; 
+        
         printf("enter a name (or type 'done' to finish): "); 
-        scanf("%99s", nameBufffer); //read up to 99 chars 
-        if(strcmp(nameBufffer, "done" )==0)
+        scanf("%99s", nameBuffer); //read up to 99 chars 
+        if(strcmp(nameBuffer, "done" )==0)
         {
             break; 
         }
-        printf("enter an age: "); 
-        scanf("%d", &age); 
+        printf("Enter an age: ");
+        while (1) { // Loop until valid age is entered
+            scanfResult = scanf("%d", &age);
+            if (scanfResult != 1) { // Check if input was not an integer
+                printf("Invalid input. Please enter an integer for age: ");
+                while (getchar() != '\n'); // Clear the input buffer
+                continue;
+            }
+            if (age < 0 || age > 120) { // Check for a reasonable age range
+                printf("Please enter a valid age between 0 and 120: ");
+                continue;
+            }
+            break; // Exit the loop if age is valid
+        }
 
-        head = addPerson(head, nameBufffer, &age); 
+        head = addPerson(head, nameBuffer, &age); 
     }
 
 
