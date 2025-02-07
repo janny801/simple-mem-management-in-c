@@ -30,3 +30,6 @@ This C project demonstrates basic memory management techniques by managing a lin
 3. Upon entering a valid age, the person is added to the linked list at the head.
 4. After typing 'done', the program displays all persons in the linked list and then frees the allocated memory.
 
+## Future Enhancements
+- **File Input for Names and Ages**: Implement functionality to read names and ages from a file instead of manual entry via the command line, enhancing usability for batch inputs.
+- **Greater visibility of Memory Allocation and Freeing**: Add features to make the process of memory allocation and deallocation more transparent, allowing users to visually verify that each allocation matches its corresponding deallocation.
