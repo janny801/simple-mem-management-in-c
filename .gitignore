@@ -1,1 +1,15 @@
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore object files and temporary files
+*.o
+*.tmp
+
+# Ignore compiled executable
 main
+
+# Ignore all log files
+*.log
+
+# Ignore other specific files that might contain sensitive info or build-specific info
+config.json
