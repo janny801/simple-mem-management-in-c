@@ -16,7 +16,10 @@ This C project demonstrates basic memory management techniques by managing a lin
 
 ### Installing and Running
 1. **Clone the repository:**
-- git clone https://github.com/janny801/simple-mem-management-in-c.git
+   - Use the command below to clone the repository to your local machine:
+     ```bash
+     git clone https://github.com/janny801/simple-mem-management-in-c.git
+     ```
 
 2. **Navigate to the project directory:**
    - Change into the project directory with:
