@@ -49,5 +49,11 @@ Follow these steps to successfully compile and run the program on your system. E
 4. After typing 'done', the program displays all persons in the linked list and then frees the allocated memory.
 
 ## Future Enhancements
-- **File Input for Names and Ages**: Implement functionality to read names and ages from a file instead of manual entry via the command line, enhancing usability for batch inputs.
-- **Greater visibility of Memory Allocation and Freeing**: Add features to make the process of memory allocation and deallocation more transparent, allowing users to visually verify that each allocation matches its corresponding deallocation.
+
+- **File Input for Names and Ages**:
+  - Implement functionality to read names and ages from a file instead of manual entry via the command line, enhancing usability for batch inputs.
+
+- **Greater Visibility of Memory Allocation and Freeing**:
+  - Add features to make the process of memory allocation and deallocation more transparent, allowing users to visually verify that each allocation matches its corresponding deallocation.
+  - Enable the user to match corresponding memory allocations with the same address when that memory is freed, particularly for the `person` struct, which includes fields for `name` and `age`. This will help ensure that memory is properly managed and debug issues related to memory leaks or mismanagement.
+
