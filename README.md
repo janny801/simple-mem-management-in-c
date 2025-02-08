@@ -17,11 +17,26 @@ This C project demonstrates basic memory management techniques by managing a lin
 ### Installing and Running
 1. **Clone the repository:**
 - git clone https://github.com/janny801/simple-mem-management-in-c.git
+
 2. **Navigate to the project directory:**
+   - Change into the project directory with:
+     ```bash
+     cd simple-mem-management-in-c
+     ```
+
 3. **Compile the program using GCC:**
+   - Compile the source code file `main.c` into an executable named `main` using the GCC compiler:
+     ```bash
+     gcc main.c -o main
+     ```
+
 4. **Run the program:**
+   - Execute the compiled program by running:
+     ```bash
+     ./main
+     ```
 
-
+Follow these steps to successfully compile and run the program on your system. Ensure you have GCC installed on your machine. If not, you might need to install it first, depending on your operating system.
 
 
 ## Usage
