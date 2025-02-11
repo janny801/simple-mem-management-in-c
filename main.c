@@ -49,10 +49,11 @@ int main()
             break;
         }
 
-        // Check if the input is not empty and contains printable characters only
+        // Check if the input is empty or consists only of whitespace characters
         if (strlen(nameBuffer) == 0 || strspn(nameBuffer, " \t\n") == strlen(nameBuffer)) {
+            // If true, the input is either completely empty or only contains spaces, tabs, or newlines
             printf("Name cannot be empty. Please enter a valid name.\n");
-            continue;
+            continue; // Ask the user to re-enter a valid name
         }
 
         int isValidName = 1;
