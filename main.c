@@ -73,19 +73,23 @@ int main()
 
 
         printf("Enter an age: ");
-        while (1) { // Loop until valid age is entered
-            scanfResult = scanf("%d", &age);
-            if (scanfResult != 1) { // Check if input was not an integer
+        while (1) { // Loop until a valid age is entered
+            scanfResult = scanf("%d", &age); // Attempt to read an integer
+        
+            if (scanfResult != 1) { // If scanf() fails to read an integer
                 printf("Invalid input. Please enter an integer for age: ");
-                while (getchar() != '\n'); // Clear the input buffer
-                continue;
+                while (getchar() != '\n'); // Clear the input buffer to remove invalid input
+                continue; // Restart the loop to prompt the user again
             }
-            if (age < 0 || age > 120) { // Check for a reasonable age range
+        
+            if (age < 0 || age > 120) { // Ensure age is within a reasonable range
                 printf("Please enter a valid age between 0 and 120: ");
-                continue;
+                continue; // Restart the loop if age is out of range
             }
-            break; // Exit the loop if age is valid
+        
+            break; // Exit the loop if a valid age is provided
         }
+        
 
         head = addPerson(head, nameBuffer, &age); 
     }
