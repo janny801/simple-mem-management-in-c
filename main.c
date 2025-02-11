@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <string.h> 
 #include <limits.h> 
-#include <ctype.h> // Include ctype.h for character functions
+#include <ctype.h>   // Needed for isalpha()
+
 
 
 typedef struct Person
@@ -43,10 +44,11 @@ int main()
         // Remove newline character from nameBuffer if present
         nameBuffer[strcspn(nameBuffer, "\n")] = 0;
 
-        // Check if the user wants to quit
-        if (strcmp(nameBuffer, "done") == 0) {
+        // Check if the user wants to quit (case-insensitive) directly in the if statement
+        if (strcasecmp(nameBuffer, "done") == 0) {  
             break;
         }
+
 
         // Check if the input is empty or consists only of whitespace characters
         if (strlen(nameBuffer) == 0 || strspn(nameBuffer, " \t\n") == strlen(nameBuffer)) {
