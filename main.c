@@ -70,6 +70,9 @@ int main()
             continue;
         }
         
+        // Clear input buffer to remove any extra newline characters
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF); // Ensures no extra input remains
 
 
         printf("Enter an age: ");
