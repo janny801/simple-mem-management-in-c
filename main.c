@@ -40,8 +40,7 @@ int main()
             printf("Error reading name. Please try again.\n");
             continue; // Skip the rest of the loop and start over
         }
-
-        // Remove newline character if present
+        // Remove newline character from nameBuffer if present
         nameBuffer[strcspn(nameBuffer, "\n")] = 0;
 
         // Check if the user wants to quit
@@ -69,10 +68,6 @@ int main()
             printf("Invalid name. Names must only contain alphabetic characters. Please enter a valid name.\n");
             continue;
         }
-        
-        // Clear input buffer to remove any extra newline characters
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF); // Ensures no extra input remains
 
 
         printf("Enter an age: ");
