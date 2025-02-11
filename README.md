@@ -57,3 +57,8 @@ Follow these steps to successfully compile and run the program on your system. E
   - Add features to make the process of memory allocation and deallocation more transparent, allowing users to visually verify that each allocation matches its corresponding deallocation.
   - Enable the user to match corresponding memory allocations with the same address when that memory is freed, particularly for the `person` struct, which includes fields for `name` and `age`. This will help ensure that memory is properly managed and debug issues related to memory leaks or mismanagement.
 
+- **Increased Input Validation**:
+  - Strengthen error checking for user inputs to prevent invalid data from being processed.
+  - Ensure that names contain only alphabetic characters by restricting numeric or special characters in name inputs.
+  - Validate age inputs to ensure they are within a reasonable range and consist only of numeric values.
+  - Improve handling of edge cases, such as empty input fields or excessively long strings, to enhance program robustness.
