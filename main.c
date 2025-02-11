@@ -54,16 +54,16 @@ int main()
         }
 
         int isValidName = 1;
-        for (int i = 0; nameBuffer[i] != '\0'; i++) {   //check if chars have whitespace
-            if (!isprint(nameBuffer[i]) || isspace(nameBuffer[i])) { //if it is not a printable char or is a space then invalid 
-            //thus break loop
+        // Validation loop to ensure name contains only alphabetic characters
+        for (int i = 0; nameBuffer[i] != '\0'; i++) {
+            if (!isalpha(nameBuffer[i])) { // Check if the character is not alphabetic
                 isValidName = 0;
                 break;
             }
         }
         
-        if (!isValidName) {     //code continues if name is valid (isvalidname=1)
-            printf("Invalid name. Names must contain printable characters and no spaces. Please enter a valid name.\n");
+        if (!isValidName) {
+            printf("Invalid name. Names must only contain alphabetic characters. Please enter a valid name.\n");
             continue;
         }
         
