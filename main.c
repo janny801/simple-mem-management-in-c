@@ -353,4 +353,13 @@ at the memory address a pointer is pointing to
 
 
 
+By adding:
+
+
+while (getchar() != '\n'); // Clear input buffer
+This loop consumes all leftover characters in the input buffer until it finds a newline (\n).
+Now, when fgets() is called, the input buffer is empty, so it correctly waits for user input instead of reading an unwanted leftover newline.
+
+
+
 */
