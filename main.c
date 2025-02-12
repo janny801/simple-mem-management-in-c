@@ -360,6 +360,17 @@ while (getchar() != '\n'); // Clear input buffer
 This loop consumes all leftover characters in the input buffer until it finds a newline (\n).
 Now, when fgets() is called, the input buffer is empty, so it correctly waits for user input instead of reading an unwanted leftover newline.
 
+🔹 What is the Input Buffer?
+The input buffer is a temporary memory region where user input is stored before being processed by your program.
+When you type something and press Enter (⏎), the input first goes into this buffer before functions like scanf() or fgets() process it.
+🔹 Where is the Input Buffer Stored?
+It is typically stored in memory by the OS and managed by standard input (stdin).
+It behaves like a queue:
+Characters are added when you type.
+Characters are removed when a function reads from it.
+If there are leftover characters, they remain until explicitly cleared.
+
+
 
 
 */
