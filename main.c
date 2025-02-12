@@ -89,7 +89,16 @@ int main()
             }
 
             while (getchar() != '\n'); // Clear input buffer after successful input
+    // This is needed because scanf("%d") reads only the integer, but leaves a newline (\n) in the input buffer.
+    // Without clearing the buffer, fgets() in the next loop iteration would read an empty string instead of waiting for user input.
+ 
+            
+            
             break; 
+
+
+
+
         }
                 
         
