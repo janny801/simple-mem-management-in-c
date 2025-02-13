@@ -7,6 +7,37 @@
 
 
 
+/* 
+
+
+
+
+other features to implement 
+- make name input dynamic to prevent buffer overflow and unused memory 
+-(done)when taking in name input, normalize ‘done’ incase user accidentally adds spaces or capitalizes (for example so that we dont have someone named “Done”)
+
+- file input for names and ages instead of typing in command line 
+add easier way to view the allocation and freeing so that the user can verify that they match
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
 typedef struct Person
 {
     //dynamically allocated ptrs 
@@ -374,15 +405,6 @@ If there are leftover characters, they remain until explicitly cleared.
 
 
 
-
-
-
-other features to implement 
-- when taking in name input , make sure to trim the whitespace (instead of just cancelling it altogether)
--(done)when taking in name input, normalize ‘done’ incase user accidentally adds spaces or capitalizes (for example so that we dont have someone named “Done”)
-
-- file input for names and ages instead of typing in command line 
-add easier way to view the allocation and freeing so that the user can verify that they match
 
 
 
