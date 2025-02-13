@@ -44,6 +44,44 @@ The pointer you pass to getline() will receive a memory block from the heap, mea
 
 
 
+before[using fgets()]
+nameBuffer is a stack-allocated array.
+When the function exits, nameBuffer is automatically freed.
+No need for free(), but the buffer size is fixed (risk of truncation).
+
+
+
+
+why still need freePerson() function? 
+Use of free() in freePersons() for fgets()
+Even though fgets() itself does not require free(), you still need freePersons() because:
+
+fgets() stores input in nameBuffer (stack memory)
+
+nameBuffer[100] is stack-allocated and is automatically freed when the function exits.
+No need to call free(nameBuffer);
+But you store nameBuffer in a dynamically allocated Person struct
+
+When adding a new Person, you allocate heap memory for name using malloc():
+This memory persists beyond the function call and must be freed manually.
+freePersons() ensures memory is released
+
+freePersons() calls free(newPerson->name); to free the heap-allocated name.
+It also frees newPerson->age (if dynamically allocated) and newPerson itself.
+
+
+
+
+
+
+
+how it should function after [using getline()]
+getline() allocates memory on the heap and resizes as needed.
+The pointer line stores the heap address.
+You must call free(line);, or memory will leak.
+
+
+
 
 
 */
