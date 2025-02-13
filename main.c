@@ -32,6 +32,12 @@ Automatically resizes the buffer as needed.
 Reads an entire line, including the newline character (\n).
 Stores the actual number of bytes read.
 
+Advantages Over fgets():
+✅ No buffer overflow – Resizes as needed.
+✅ Handles long input gracefully – No truncation.
+✅ Includes input length (len) – Useful for processing.
+❌ Must free memory manually (free(line)).
+
 
 
 
