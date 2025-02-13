@@ -378,10 +378,9 @@ If there are leftover characters, they remain until explicitly cleared.
 
 
 other features to implement 
-when taking in name input , make sure to trim the whitespace (instead of just cancelling it altogether)
-when taking in name input, normalize ‘done’ incase user accidentally adds spaces or capitalizes (for example so that we dont have someone named “Done”)
-fix or find out why warnings in code
-if no problem be sure to comment it out in the program 
+- when taking in name input , make sure to trim the whitespace (instead of just cancelling it altogether)
+-(done)when taking in name input, normalize ‘done’ incase user accidentally adds spaces or capitalizes (for example so that we dont have someone named “Done”)
+
 - file input for names and ages instead of typing in command line 
 add easier way to view the allocation and freeing so that the user can verify that they match
 
