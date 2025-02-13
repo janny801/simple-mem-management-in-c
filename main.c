@@ -18,6 +18,7 @@ other features to implement
 
 - file input for names and ages instead of typing in command line 
 add easier way to view the allocation and freeing so that the user can verify that they match
+- sort persons by age when displaying (after typing 'done' ) 
 
 
 
