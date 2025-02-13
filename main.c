@@ -71,10 +71,6 @@ It also frees newPerson->age (if dynamically allocated) and newPerson itself.
 
 
 
-
-
-
-
 how it should function after [using getline()]
 getline() allocates memory on the heap and resizes as needed.
 The pointer line stores the heap address.
@@ -105,24 +101,7 @@ int main() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 */
-
-
-
-
-
-
 
 
 
