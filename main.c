@@ -38,6 +38,9 @@ Advantages Over fgets():
 ✅ Includes input length (len) – Useful for processing.
 ❌ Must free memory manually (free(line)).
 
+** allocate to the heap instead of the stack 
+getline() dynamically allocates memory using malloc() (or realloc() internally if resizing is needed).
+The pointer you pass to getline() will receive a memory block from the heap, meaning it will persist beyond the function call until you explicitly free() it.
 
 
 
