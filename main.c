@@ -83,6 +83,38 @@ You must call free(line);, or memory will leak.
 
 
 
+_______________________
+
+small heap allocation example to build off of
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *ptr = (int*) malloc(sizeof(int));  // Allocates memory for one int
+
+    if (ptr == NULL) {  
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    *ptr = 42;  // Assign a value
+    printf("Value: %d\n", *ptr);
+
+    free(ptr);  // Free the allocated memory
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 */
 
