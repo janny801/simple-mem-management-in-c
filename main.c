@@ -361,6 +361,30 @@ void printPerson( Person *person)
 */
 
 
+
+
+
+
+
+
+
+/* 
+
+
+notes for the freepersons() function via for functionality with fgets() 
+- so that i can understand how to fix/modify when making dynamic
+
+
+You still need freePersons() because you manually allocate memory (malloc()) for names, ages, and linked list nodes.
+
+
+If a variable is stored on the stack, it is automatically deallocated when the function exits. No free() is needed.
+If a variable is stored on the heap (using malloc()), it persists beyond function execution and must be manually freed.
+
+
+*/
+
+
 void freePersons(Person *head) {
     Person *current = head;
     while (current != NULL) {
