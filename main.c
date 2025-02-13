@@ -22,6 +22,15 @@ add easier way to view the allocation and freeing so that the user can verify th
 
 
 
+*** dynamic resizing for name input ***
+
+- use getline() instead of fgets()
+How it works:
+
+Takes a NULL pointer and allocates memory dynamically.
+Automatically resizes the buffer as needed.
+Reads an entire line, including the newline character (\n).
+Stores the actual number of bytes read.
 
 
 
