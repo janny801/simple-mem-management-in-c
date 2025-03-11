@@ -120,6 +120,33 @@ void printPersons(Person *head);
 void freePersons(Person *head);
 
 
+
+// Function to trim leading and trailing spaces from a string
+void trimWhitespace(char *str) {
+    int start = 0, end = strlen(str) - 1;
+
+    // Move start index forward past any leading spaces
+    while (isspace((unsigned char)str[start])) {
+        start++;
+    }
+
+    // Move end index backward past any trailing spaces
+    while (end > start && isspace((unsigned char)str[end])) {
+        end--;
+    }
+
+    // Shift the trimmed string to the beginning
+    memmove(str, str + start, end - start + 1);
+
+    // Null terminate the string at the correct position
+    str[end - start + 1] = '\0';
+}
+
+
+
+
+
+
 int main()
 {
     //main
