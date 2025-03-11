@@ -50,6 +50,37 @@ Follow these steps to successfully compile and run the program on your system. E
 
 ## Example Input & Output
 
+```sh
+Enter a name (or type 'done' to finish): Alice
+Enter an age: 20
+
+Allocated person struct at location: 0x12a704080
+Allocated name at location: 0x12b004080
+Allocated age at location: 0x12b004090
+First person added to the linked list
+
+Enter a name (or type 'done' to finish): Bob
+Enter an age: 50 
+
+Allocated person struct at location: 0x12b104080
+Allocated name at location: 0x12b204080
+Allocated age at location: 0x12b204090
+Person added to the linked list
+
+Enter a name (or type 'done' to finish): Done
+
+--- List of Persons ---
+Name: Alice, Age: 20
+Name: Bob, Age: 50
+
+--- Now freeing persons from memory ---
+Freeing name structure at location: 0x12b004080
+Freeing age structure at location: 0x12b004090
+Freeing person structure at location: 0x12a704080
+Freeing name structure at location: 0x12b204080
+Freeing age structure at location: 0x12b204090
+Freeing person structure at location: 0x12b104080
+```
 
 ## Future Enhancements
 
