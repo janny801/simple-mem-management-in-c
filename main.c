@@ -520,25 +520,34 @@ void freePersons(Person *head) {
     while (current != NULL) {
         Person *next = current->next;  // Save the next person before freeing memory
 
+        // Store name in a temporary variable before freeing it
+        char *nameCopy = strdup(current->name); // Duplicate the name safely
+        if (!nameCopy) {
+            fprintf(stderr, "Error: Memory allocation failed while copying name.\n");
+            exit(EXIT_FAILURE);
+        }
+
         // Print the memory addresses in table format
         printf("| %-15s | %-18p | %-18p | %-18p |\n",
-               current->name, (void*)current, (void*)current->name, (void*)current->age);
+               nameCopy, (void*)current, (void*)current->name, (void*)current->age);
 
         // Free the dynamically allocated name and log the action
         if (current->name != NULL) {
-            printf("[FREE] Name  '%s' at %p\n", current->name, (void*)current->name);
+            printf("[FREE] Name  '%s' at %p\n", nameCopy, (void*)current->name);
             free(current->name);
         }
 
         // Free the dynamically allocated age and log the action
         if (current->age != NULL) {
-            printf("[FREE] Age   '%s' at %p\n", current->name, (void*)current->age);
+            printf("[FREE] Age   '%s' at %p\n", nameCopy, (void*)current->age);
             free(current->age);
         }
 
         // Free the struct itself and log the action
-        printf("[FREE] Person '%s' struct at %p\n", current->name, (void*)current);
+        printf("[FREE] Person '%s' struct at %p\n", nameCopy, (void*)current);
         free(current);
+
+        free(nameCopy); // Free the duplicated name
 
         current = next;  // Move to the next person in the list
     }
@@ -546,6 +555,7 @@ void freePersons(Person *head) {
     // Print closing separator
     printf("-----------------------------------------------------------------------------\n");
 }
+
 
 
 void printPersons(Person *head) {
