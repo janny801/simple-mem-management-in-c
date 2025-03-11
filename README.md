@@ -82,6 +82,20 @@ Freeing age structure at location: 0x12b204090
 Freeing person structure at location: 0x12b104080
 ```
 
+## Explanation:
+
+1. The user enters `"Alice"` as the name and `20` as the age.
+   - Memory is allocated for Alice and added to the linked list.
+
+2. The user enters `"Bob"` as the name and `50` as the age.
+   - Memory is allocated for Bob and added to the linked list.
+
+3. The user enters `"Done"`, signaling the program to stop taking inputs.
+
+4. The program displays all stored persons in the list.
+
+5. The program then frees all dynamically allocated memory, ensuring no memory leaks.
+
 ## Future Enhancements
 
 - **File Input for Names and Ages**:
