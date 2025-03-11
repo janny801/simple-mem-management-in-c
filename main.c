@@ -338,6 +338,122 @@ Person* allocatePerson(const char*name, const int *age)
 
 
 //funciton to add a new person to the linked list 
+
+
+
+
+
+
+
+
+
+
+
+
+//need to define other funtions inorder for compilation proper
+
+//free and print functions for allocation of person
+
+//function to free all dynamically allocated memory for a person 
+
+/* used for array , we are now using LL
+void freePerson(Person *person)
+{
+    if(person != NULL)
+    {
+        printf("freeing name at address: %p\n",(void*)person->name); 
+        free(person->name); // free mem allocated for name
+        printf("freeing age at address: %p\n", (void*)person->age); 
+        free(person->age); //free mem allocated for age
+        printf("freeing person struct at address: %p\n", (void*)person); 
+        free(person); //free mem allocated for person struct
+    }
+}
+
+ */
+
+
+//func to print details of the person 
+
+
+/*used or array 
+void printPerson( Person *person)
+{
+    if(person!=NULL)
+    {
+        printf("Name: %s, Age: %d\n", person->name, *(person->age)); // Print the name and the value of age 
+
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+/* 
+
+
+notes for the freepersons() function via for functionality with fgets() 
+- so that i can understand how to fix/modify when making dynamic
+
+
+You still need freePersons() because you manually allocate memory (malloc()) for names, ages, and linked list nodes.
+
+
+If a variable is stored on the stack, it is automatically deallocated when the function exits. No free() is needed.
+If a variable is stored on the heap (using malloc()), it persists beyond function execution and must be manually freed.
+
+
+*/
+
+
+
+
+
+/*
+notes
+strings decay to char* 
+
+each name is a string of char* in memory?
+
+dereference; access or retrieve the value stored 
+at the memory address a pointer is pointing to 
+
+
+
+By adding:
+
+
+while (getchar() != '\n'); // Clear input buffer
+This loop consumes all leftover characters in the input buffer until it finds a newline (\n).
+Now, when fgets() is called, the input buffer is empty, so it correctly waits for user input instead of reading an unwanted leftover newline.
+
+🔹 What is the Input Buffer?
+The input buffer is a temporary memory region where user input is stored before being processed by your program.
+When you type something and press Enter (⏎), the input first goes into this buffer before functions like scanf() or fgets() process it.
+🔹 Where is the Input Buffer Stored?
+It is typically stored in memory by the OS and managed by standard input (stdin).
+It behaves like a queue:
+Characters are added when you type.
+Characters are removed when a function reads from it.
+If there are leftover characters, they remain until explicitly cleared.
+
+
+
+
+
+
+
+
+
+*/
+
+
 Person* addPerson(Person *head, const char *name, const int *age) {
     // Allocate memory for the new person structure
     Person *newPerson = (Person*) malloc(sizeof(Person)); 
@@ -387,87 +503,6 @@ return head;  // Return the head of the list
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//need to define other funtions inorder for compilation proper
-
-//free and print functions for allocation of person
-
-//function to free all dynamically allocated memory for a person 
-
-/* used for array , we are now using LL
-void freePerson(Person *person)
-{
-    if(person != NULL)
-    {
-        printf("freeing name at address: %p\n",(void*)person->name); 
-        free(person->name); // free mem allocated for name
-        printf("freeing age at address: %p\n", (void*)person->age); 
-        free(person->age); //free mem allocated for age
-        printf("freeing person struct at address: %p\n", (void*)person); 
-        free(person); //free mem allocated for person struct
-    }
-}
-
- */
-
-void printPersons(Person *head) {
-    Person *current = head;
-    while (current != NULL) {
-        printf("Name: %s, Age: %d\n", current->name, *(current->age));
-        current = current->next;
-    }
-}
-
-//func to print details of the person 
-
-
-/*used or array 
-void printPerson( Person *person)
-{
-    if(person!=NULL)
-    {
-        printf("Name: %s, Age: %d\n", person->name, *(person->age)); // Print the name and the value of age 
-
-    }
-}
-*/
-
-
-
-
-
-
-
-
-
-/* 
-
-
-notes for the freepersons() function via for functionality with fgets() 
-- so that i can understand how to fix/modify when making dynamic
-
-
-You still need freePersons() because you manually allocate memory (malloc()) for names, ages, and linked list nodes.
-
-
-If a variable is stored on the stack, it is automatically deallocated when the function exits. No free() is needed.
-If a variable is stored on the heap (using malloc()), it persists beyond function execution and must be manually freed.
-
-
-*/
-
-
 void freePersons(Person *head) {
     Person *current = head;
     while (current != NULL) {
@@ -494,42 +529,10 @@ void freePersons(Person *head) {
     }
 }
 
-
-
-/*
-notes
-strings decay to char* 
-
-each name is a string of char* in memory?
-
-dereference; access or retrieve the value stored 
-at the memory address a pointer is pointing to 
-
-
-
-By adding:
-
-
-while (getchar() != '\n'); // Clear input buffer
-This loop consumes all leftover characters in the input buffer until it finds a newline (\n).
-Now, when fgets() is called, the input buffer is empty, so it correctly waits for user input instead of reading an unwanted leftover newline.
-
-🔹 What is the Input Buffer?
-The input buffer is a temporary memory region where user input is stored before being processed by your program.
-When you type something and press Enter (⏎), the input first goes into this buffer before functions like scanf() or fgets() process it.
-🔹 Where is the Input Buffer Stored?
-It is typically stored in memory by the OS and managed by standard input (stdin).
-It behaves like a queue:
-Characters are added when you type.
-Characters are removed when a function reads from it.
-If there are leftover characters, they remain until explicitly cleared.
-
-
-
-
-
-
-
-
-
-*/
+void printPersons(Person *head) {
+    Person *current = head;
+    while (current != NULL) {
+        printf("Name: %s, Age: %d\n", current->name, *(current->age));
+        current = current->next;
+    }
+}
