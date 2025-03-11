@@ -48,6 +48,9 @@ Follow these steps to successfully compile and run the program on your system. E
 3. Upon entering a valid age, the person is added to the linked list at the head.
 4. After typing 'done', the program displays all persons in the linked list and then frees the allocated memory.
 
+## Example Input & Output
+
+
 ## Future Enhancements
 
 - **File Input for Names and Ages**:
