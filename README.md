@@ -130,3 +130,12 @@ Name: yomoma, Age: 120
   - Ensure that names contain only alphabetic characters by restricting numeric or special characters in name inputs.
   - Validate age inputs to ensure they are within a reasonable range and consist only of numeric values.
   - Improve handling of edge cases, such as empty input fields or excessively long strings, to enhance program robustness.
+
+- **Interactive Features**
+  - Provide a **menu-driven interface** for adding, searching, sorting, and deleting persons.
+  - Allow users to **edit existing records** instead of just adding/removing persons.
+  - Implement an **undo/redo feature** for accidental deletions.
+
+- **Efficiency Improvements**
+  - Replace the **singly linked list with a doubly linked list** to improve deletion performance.
+  - Use a **hash map** for faster searching and retrieval of persons.
