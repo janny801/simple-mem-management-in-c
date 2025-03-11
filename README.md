@@ -108,17 +108,27 @@ Name: yomoma, Age: 120
 
 ## Explanation:
 
-1. The user enters `"Alice"` as the name and `20` as the age.
-   - Memory is allocated for Alice and added to the linked list.
+1. The user enters `"janred"` as the name and `20` as the age.
+   - Memory is allocated for `janred`, and they are added to the linked list.
 
-2. The user enters `"Bob"` as the name and `50` as the age.
-   - Memory is allocated for Bob and added to the linked list.
+2. The user enters `"lebron"` as the name and `40` as the age.
+   - Memory is allocated for `lebron`, and they are added to the linked list.
 
-3. The user enters `"Done"`, signaling the program to stop taking inputs.
+3. The user enters `"yo mommaa"`, which contains spaces and non-alphabetic characters.
+   - The program rejects the input and prompts the user to enter a valid name.
 
-4. The program displays all stored persons in the list.
+4. The user then enters `"yomoma"` as the corrected name and `200` as the age.
+   - Since `200` is outside the valid range (`0-120`), the program prompts the user to enter a valid age.
+   - The user then enters `120`, which is accepted, and `yomoma` is added to the linked list.
 
-5. The program then frees all dynamically allocated memory, ensuring no memory leaks.
+5. The user enters `"done"`, signaling the program to stop taking inputs.
+
+6. The program displays all stored persons in the list.
+
+7. The program then begins freeing memory:
+   - A structured table is displayed to match each allocated memory address with its corresponding deallocation.
+   - Each person's name, struct, name memory, and age memory are freed properly.
+   - The program ensures no memory leaks by systematically freeing all allocated memory.
 
 ## Future Enhancements
 
