@@ -51,35 +51,59 @@ Follow these steps to successfully compile and run the program on your system. E
 ## Example Input & Output
 
 ```sh
-Enter a name (or type 'done' to finish): Alice
+Enter a name (or type 'done' to finish): janred
 Enter an age: 20
 
-Allocated person struct at location: 0x12a704080
-Allocated name at location: 0x12b004080
-Allocated age at location: 0x12b004090
+[ALLOC] Person 'janred' struct at 0x145704080
+[ALLOC] Name  'janred' at 0x1457040a0
+[ALLOC] Age   'janred' at 0x1457040b0
 First person added to the linked list
 
-Enter a name (or type 'done' to finish): Bob
-Enter an age: 50 
+Enter a name (or type 'done' to finish): lebron
+Enter an age: 40
 
-Allocated person struct at location: 0x12b104080
-Allocated name at location: 0x12b204080
-Allocated age at location: 0x12b204090
-Person added to the linked list
+[ALLOC] Person 'lebron' struct at 0x146004080
+[ALLOC] Name  'lebron' at 0x146104080
+[ALLOC] Age   'lebron' at 0x146104090
+Person 'lebron' added to the linked list
 
-Enter a name (or type 'done' to finish): Done
+Enter a name (or type 'done' to finish): yo mommaa
+Invalid name. Names must only contain alphabetic characters. Please enter a valid name.
+Enter a name (or type 'done' to finish): yomoma
+Enter an age: 200
+Please enter a valid age between 0 and 120: 120
+
+[ALLOC] Person 'yomoma' struct at 0x145605ed0
+[ALLOC] Name  'yomoma' at 0x145605ef0
+[ALLOC] Age   'yomoma' at 0x145605fc0
+Person 'yomoma' added to the linked list
+
+Enter a name (or type 'done' to finish): done
 
 --- List of Persons ---
-Name: Alice, Age: 20
-Name: Bob, Age: 50
+Name: janred, Age: 20
+Name: lebron, Age: 40
+Name: yomoma, Age: 120
 
 --- Now freeing persons from memory ---
-Freeing name structure at location: 0x12b004080
-Freeing age structure at location: 0x12b004090
-Freeing person structure at location: 0x12a704080
-Freeing name structure at location: 0x12b204080
-Freeing age structure at location: 0x12b204090
-Freeing person structure at location: 0x12b104080
+
+--- Freeing Memory (Matching Allocations) ---
+-----------------------------------------------------------------------------
+| Person Name     | Struct Addr        | Name Addr          | Age Addr           |
+-----------------------------------------------------------------------------
+| janred          | 0x145704080        | 0x1457040a0        | 0x1457040b0        |
+[FREE] Name  'janred' at 0x1457040a0
+[FREE] Age   'janred' at 0x1457040b0
+[FREE] Person 'janred' struct at 0x145704080
+| lebron          | 0x146004080        | 0x146104080        | 0x146104090        |
+[FREE] Name  'lebron' at 0x146104080
+[FREE] Age   'lebron' at 0x146104090
+[FREE] Person 'lebron' struct at 0x146004080
+| yomoma          | 0x145605ed0        | 0x145605ef0        | 0x145605fc0        |
+[FREE] Name  'yomoma' at 0x145605ef0
+[FREE] Age   'yomoma' at 0x145605fc0
+[FREE] Person 'yomoma' struct at 0x145605ed0
+-----------------------------------------------------------------------------
 ```
 
 ## Explanation:
