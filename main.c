@@ -170,6 +170,10 @@ int main()
         // Remove newline character from nameBuffer if present
         nameBuffer[strcspn(nameBuffer, "\n")] = 0;
 
+        // **Trim whitespace from the name**
+        trimWhitespace(nameBuffer);
+
+
         // Check if the user wants to quit (case-insensitive) directly in the if statement
         if (strcasecmp(nameBuffer, "done") == 0) {  
             break;
