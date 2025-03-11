@@ -125,10 +125,6 @@ Name: yomoma, Age: 120
 - **File Input for Names and Ages**:
   - Implement functionality to read names and ages from a file instead of manual entry via the command line, enhancing usability for batch inputs.
 
-- **Greater Visibility of Memory Allocation and Freeing**:
-  - Add features to make the process of memory allocation and deallocation more transparent, allowing users to visually verify that each allocation matches its corresponding deallocation. (not sure how this will be done tho lol)
-  - Enable the user to match corresponding memory allocations with the same address when that memory is freed, particularly for the `person` struct, which includes fields for `name` and `age`. This will help ensure that memory is properly managed and debug issues related to memory leaks or mismanagement.
-
 - **Increased Input Validation**:
   - Strengthen error checking for user inputs to prevent invalid data from being processed.
   - Ensure that names contain only alphabetic characters by restricting numeric or special characters in name inputs.
