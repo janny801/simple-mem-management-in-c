@@ -510,9 +510,19 @@ Person* addPerson(Person *head, const char *name, const int *age) {
 }
 
 void freePersons(Person *head) {
+    // Print header for better visualization
+    printf("\n--- Freeing Memory (Matching Allocations) ---\n");
+    printf("-----------------------------------------------------------------------------\n");
+    printf("| %-15s | %-18s | %-18s | %-18s |\n", "Person Name", "Struct Addr", "Name Addr", "Age Addr");
+    printf("-----------------------------------------------------------------------------\n");
+
     Person *current = head;
     while (current != NULL) {
         Person *next = current->next;  // Save the next person before freeing memory
+
+        // Print the memory addresses in table format
+        printf("| %-15s | %-18p | %-18p | %-18p |\n",
+               current->name, (void*)current, (void*)current->name, (void*)current->age);
 
         // Free the dynamically allocated name and log the action
         if (current->name != NULL) {
@@ -532,7 +542,11 @@ void freePersons(Person *head) {
 
         current = next;  // Move to the next person in the list
     }
+
+    // Print closing separator
+    printf("-----------------------------------------------------------------------------\n");
 }
+
 
 void printPersons(Person *head) {
     Person *current = head;
