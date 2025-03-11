@@ -1,15 +1,32 @@
-# Ignore Visual Studio Code settings
+# Ignore all compiled executable files (files without extensions)
+*
+
+# Do not ignore folders
+!*/
+
+# Do NOT ignore source files, headers, and important files
+!*.c
+!*.h
+!*.md
+!*.gitignore
+
+# Ignore Visual Studio Code settings folder
 .vscode/
 
 # Ignore object files and temporary files
 *.o
 *.tmp
 
-# Ignore compiled executable
-main
+# Ignore all compiled executable files (platform-independent)
+*.exe
+*.out
+*.bin
 
 # Ignore all log files
 *.log
+
+# Ignore macOS debug symbol folders generated when compiling with the '-g' flag
+*.dSYM/
 
 # Ignore other specific files that might contain sensitive info or build-specific info
 config.json
