@@ -453,7 +453,6 @@ If there are leftover characters, they remain until explicitly cleared.
 
 */
 
-
 Person* addPerson(Person *head, const char *name, const int *age) {
     // Allocate memory for the new person structure
     Person *newPerson = (Person*) malloc(sizeof(Person)); 
@@ -461,71 +460,77 @@ Person* addPerson(Person *head, const char *name, const int *age) {
         fprintf(stderr, "Error: Memory allocation failed for person struct\n");
         exit(EXIT_FAILURE); 
     }
-    printf("\nAllocated person struct at location: %p\n", (void*)newPerson);
+    // Log the memory address where the new person struct is allocated
+    printf("\n[ALLOC] Person '%s' struct at %p\n", name, (void*)newPerson);
 
-    // Allocate memory for the person's name
+    // Allocate memory for the person's name dynamically
+    // This ensures we store a copy of the name and do not reference the original input buffer
     newPerson->name = (char*) malloc((strlen(name) + 1) * sizeof(char)); 
     if (newPerson->name == NULL) {
         fprintf(stderr, "Error: Memory allocation failed for name\n");
-        free(newPerson); // Clean up already allocated person struct before exiting
+        free(newPerson);  // Free the struct since name allocation failed
         exit(EXIT_FAILURE); 
     }
-    strcpy(newPerson->name, name); // Copy name into the newly allocated memory
-    printf("Allocated name at location: %p\n", (void*)newPerson->name);
+    // Copy the name into the newly allocated memory
+    strcpy(newPerson->name, name);
+    // Log the memory address where the name is stored
+    printf("[ALLOC] Name  '%s' at %p\n", name, (void*)newPerson->name);
 
-    // Allocate memory for the person's age
+    // Allocate memory for the person's age dynamically
     newPerson->age = (int*) malloc(sizeof(int)); 
     if (newPerson->age == NULL) {
         fprintf(stderr, "Error: Memory allocation for age failed\n");
-        free(newPerson->name); // Clean up name allocation
-        free(newPerson); // Clean up person struct allocation
+        free(newPerson->name);  // Free previously allocated memory before exiting
+        free(newPerson);
         exit(EXIT_FAILURE); 
     }
-    *(newPerson->age) = *age; // Dereference age pointer and assign it to allocated memory
-    printf("Allocated age at location: %p\n", (void*)newPerson->age);
+    *(newPerson->age) = *age;  // Store the age value in the allocated memory
+    // Log the memory address where the age is stored
+    printf("[ALLOC] Age   '%s' at %p\n", name, (void*)newPerson->age);
 
-    newPerson->next = NULL; // Initialize the next pointer to NULL
+    newPerson->next = NULL;  // Initialize the next pointer to NULL
 
-    // Check if the linked list is empty, if so, the new person becomes the head
-    if (head == NULL) {
-    printf("First person added to the linked list\n\n");  // Print message for the first person added
-    return newPerson;  // The first person added becomes the head of the list
-} else {
-    // Otherwise, append the new person to the end of the list
-    Person *current = head;
-    while (current->next != NULL) {
-        current = current->next;  // Traverse to the end of the list
+    // Append the new person to the linked list
+    if (head == NULL) {  
+        // If the list is empty, this new person becomes the head
+        printf("First person added to the linked list\n\n");
+        return newPerson;
+    } else {
+        // Traverse to the last node in the list and append the new person
+        Person *current = head;
+        while (current->next != NULL) {
+            current = current->next;
+        }
+        current->next = newPerson;
     }
-    current->next = newPerson;  // Append the new person
-}
-printf("Person added to the linked list\n\n");  // Confirmation message for every person added
-return head;  // Return the head of the list
 
+    // Print confirmation that the person has been added
+    printf("Person '%s' added to the linked list\n\n", name);
+    return head;  // Return the head of the list (unchanged)
 }
 
 void freePersons(Person *head) {
     Person *current = head;
     while (current != NULL) {
-        Person *next = current->next; // Save the next person before freeing memory
+        Person *next = current->next;  // Save the next person before freeing memory
 
-        // Log and free the name
+        // Free the dynamically allocated name and log the action
         if (current->name != NULL) {
-            printf("Freeing name structure at location: %p\n", (void*)current->name);
+            printf("[FREE] Name  '%s' at %p\n", current->name, (void*)current->name);
             free(current->name);
         }
 
-        // Log and free the age
+        // Free the dynamically allocated age and log the action
         if (current->age != NULL) {
-            printf("Freeing age structure at location: %p\n", (void*)current->age);
+            printf("[FREE] Age   '%s' at %p\n", current->name, (void*)current->age);
             free(current->age);
         }
 
-        // Log and free the person structure
-        printf("Freeing person structure at location: %p\n", (void*)current);
+        // Free the struct itself and log the action
+        printf("[FREE] Person '%s' struct at %p\n", current->name, (void*)current);
         free(current);
 
-        // Move to the next person in the list
-        current = next;
+        current = next;  // Move to the next person in the list
     }
 }
 
