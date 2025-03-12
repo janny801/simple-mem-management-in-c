@@ -11,8 +11,9 @@ This C project demonstrates basic memory management techniques by managing a lin
 
 ## Getting Started
 
-### Dependencies
-- GCC Compiler is required to compile and execute this program.
+### Dependencies  
+- **A C compiler is required** to compile and execute this program.  
+- This program is tested and works with **GCC (GNU Compiler Collection)**, which is recommended for compiling it.  
 
 - It is widely used for **compiling programs** on various operating systems, including:  
   - **Linux**  
