@@ -14,6 +14,12 @@ This C project demonstrates basic memory management techniques by managing a lin
 ### Dependencies
 - GCC Compiler is required to compile and execute this program.
 
+- It is widely used for **compiling programs** on various operating systems, including:  
+  - **Linux**  
+  - **macOS**  
+  - **Windows** (via **MinGW** or **Cygwin**)  
+
+- **GCC translates human-readable source code** into machine-executable binary code, allowing C programs to run on different platforms.  
 
 #### Checking if GCC is Installed  
 To verify if GCC is installed, run:  
