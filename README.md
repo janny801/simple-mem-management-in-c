@@ -14,6 +14,13 @@ This C project demonstrates basic memory management techniques by managing a lin
 ### Dependencies
 - GCC Compiler is required to compile and execute this program.
 
+
+#### Checking if GCC is Installed  
+To verify if GCC is installed, run:  
+```sh
+gcc --version
+```
+
 ### Installing and Running
 1. **Clone the repository:**
    - Use the command below to clone the repository to your local machine:
